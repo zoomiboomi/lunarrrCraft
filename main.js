@@ -20,3 +20,13 @@ function animate() {
 }
 
 animate();
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  // If you have menu, update buttons positions on resize
+  if (!gameStarted) mainMenu.createButtons();
+}
+window.addEventListener('resize', resize);
+resize();
+
