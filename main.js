@@ -1,22 +1,20 @@
-import { Display } from './engine/display.js';
-import { Input } from './engine/input.js';
-import { World } from './engine/world.js';
-import { Player } from './engine/player.js';
+import { MainMenu } from './engine/mainMenu.js';
 
-const display = new Display('gameCanvas');
-const input = new Input();
-const world = new World();
-const player = new Player();
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
 
-function gameLoop() {
-  input.update();
-
-  player.update(world, input);
-  world.update();
-
-  display.render(world, player);
-
-  requestAnimationFrame(gameLoop);
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
+window.addEventListener('resize', resize);
+resize();
 
-requestAnimationFrame(gameLoop);
+const mainMenu = new MainMenu(canvas, ctx);
+
+function animate() {
+  mainMenu.update();
+  mainMenu.render();
+  requestAnimationFrame(animate);
+}
+animate();
