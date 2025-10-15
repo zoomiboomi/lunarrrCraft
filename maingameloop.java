@@ -25,3 +25,49 @@ public class MainGameLoop {
         new MainGameLoop().start();
     }
 }
+
+GL11.glBegin(GL11.GL_QUADS);
+
+// Front face (z positive)
+GL11.glColor3f(1f, 0f, 0f); // Red
+GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
+GL11.glVertex3f(0.5f, -0.5f, 0.5f);
+GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
+
+// Back face (z negative)
+GL11.glColor3f(0f, 1f, 0f); // Green
+GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
+GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+GL11.glVertex3f(0.5f, 0.5f, -0.5f);
+GL11.glVertex3f(0.5f, -0.5f, -0.5f);
+
+// Left face (x negative)
+GL11.glColor3f(0f, 0f, 1f); // Blue
+GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
+GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
+GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
+GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+
+// Right face (x positive)
+GL11.glColor3f(1f, 1f, 0f); // Yellow
+GL11.glVertex3f(0.5f, -0.5f, -0.5f);
+GL11.glVertex3f(0.5f, 0.5f, -0.5f);
+GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+GL11.glVertex3f(0.5f, -0.5f, 0.5f);
+
+// Top face (y positive)
+GL11.glColor3f(1f, 0f, 1f); // Magenta
+GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
+GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+GL11.glVertex3f(0.5f, 0.5f, -0.5f);
+
+// Bottom face (y negative)
+GL11.glColor3f(0f, 1f, 1f); // Cyan
+GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
+GL11.glVertex3f(0.5f, -0.5f, -0.5f);
+GL11.glVertex3f(0.5f, -0.5f, 0.5f);
+GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
+
+GL11.glEnd();
