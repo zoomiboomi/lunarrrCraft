@@ -29,23 +29,24 @@
             <artifactId>lwjgl-opengl</artifactId>  
             <version>3.3.3</version>  
         </dependency>  
+        <!-- Native libs: update classifier based on OS -->  
         <dependency>  
             <groupId>org.lwjgl</groupId>  
             <artifactId>lwjgl</artifactId>  
             <version>3.3.3</version>  
-            <classifier>natives-windows</classifier> <!-- change for your OS -->  
+            <classifier>natives-linux</classifier>  
         </dependency>  
         <dependency>  
             <groupId>org.lwjgl</groupId>  
             <artifactId>lwjgl-glfw</artifactId>  
             <version>3.3.3</version>  
-            <classifier>natives-windows</classifier>  
+            <classifier>natives-linux</classifier>  
         </dependency>  
         <dependency>  
             <groupId>org.lwjgl</groupId>  
             <artifactId>lwjgl-opengl</artifactId>  
             <version>3.3.3</version>  
-            <classifier>natives-windows</classifier>  
+            <classifier>natives-linux</classifier>  
         </dependency>  
     </dependencies>  
 </project>
