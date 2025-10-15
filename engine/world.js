@@ -1,9 +1,9 @@
 export class World {
   constructor() {
-    // TODO: store blocks and chunks here
+    // Future: store blocks, chunks, etc.
   }
 
   update() {
-    // Game logic, physics, etc.
+    // Future: physics, block updates
   }
 }
