@@ -8,7 +8,7 @@ const input = new Input();
 const world = new World();
 const player = new Player();
 
-function gameLoop(time) {
+function gameLoop() {
   input.update();
 
   player.update(world, input);
