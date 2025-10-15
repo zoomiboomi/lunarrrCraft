@@ -1,7 +1,9 @@
 export class MainMenu {
-  constructor(canvas, ctx) {
+  constructor(canvas, ctx, onStartCallback) {
     this.canvas = canvas;
     this.ctx = ctx;
+    this.onStart = onStartCallback;
+
     this.buttons = [];
 
     this.createButtons();
@@ -21,7 +23,7 @@ export class MainMenu {
       width: 200,
       height: 50,
       hovered: false,
-      action: () => this.startGame()
+      action: () => this.onStart()
     });
 
     this.buttons.push({
@@ -31,29 +33,26 @@ export class MainMenu {
       width: 200,
       height: 50,
       hovered: false,
-      action: () => this.quitGame()
+      action: () => alert('Quit clicked! Implement quitting logic here.')
     });
   }
 
   update() {
-    // No complex update logic needed here yet
+    // No additional logic for now
   }
 
   render() {
     const ctx = this.ctx;
     const canvas = this.canvas;
 
-    // Clear screen
     ctx.fillStyle = '#121212';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw title
     ctx.fillStyle = '#fff';
     ctx.font = 'bold 72px Arial';
     ctx.textAlign = 'center';
     ctx.fillText('LunarrrCraft', canvas.width / 2, canvas.height / 3);
 
-    // Draw buttons
     this.buttons.forEach(button => {
       ctx.fillStyle = button.hovered ? '#4CAF50' : '#2E7D32';
       ctx.fillRect(button.x, button.y, button.width, button.height);
@@ -82,15 +81,5 @@ export class MainMenu {
     if (clickedButton) {
       clickedButton.action();
     }
-  }
-
-  startGame() {
-    alert('Start Game clicked! Implement game start here.');
-    // TODO: hook this to start your game loop and world rendering
-  }
-
-  quitGame() {
-    alert('Quit Game clicked! Closing game...');
-    // TODO: implement quitting or redirect
   }
 }
