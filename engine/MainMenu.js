@@ -8,11 +8,15 @@ export class MainMenu {
 
     this.createButtons();
 
+    // Bind resize event so buttons reposition when window size changes
+    window.addEventListener('resize', () => this.createButtons());
+
     this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
     this.canvas.addEventListener('click', (e) => this.onClick(e));
   }
 
   createButtons() {
+    this.buttons = [];
     const centerX = this.canvas.width / 2;
     const startY = this.canvas.height / 2;
 
@@ -38,21 +42,26 @@ export class MainMenu {
   }
 
   update() {
-    // No additional logic for now
+    // No update logic for now
   }
 
   render() {
     const ctx = this.ctx;
     const canvas = this.canvas;
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Background
     ctx.fillStyle = '#121212';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    // Title
     ctx.fillStyle = '#fff';
     ctx.font = 'bold 72px Arial';
     ctx.textAlign = 'center';
     ctx.fillText('LunarrrCraft', canvas.width / 2, canvas.height / 3);
 
+    // Buttons
     this.buttons.forEach(button => {
       ctx.fillStyle = button.hovered ? '#4CAF50' : '#2E7D32';
       ctx.fillRect(button.x, button.y, button.width, button.height);
